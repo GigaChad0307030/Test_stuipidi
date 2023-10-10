@@ -11,7 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class HelloController extends ControllerBase{
+
     @FXML
     private Label welcomeText;
     @FXML
@@ -20,15 +21,11 @@ public class HelloController {
     private Label label_h;
     @FXML
     protected void onHelloButtonClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("test.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
-        Stage stage= (Stage) anchorPane.getScene().getWindow();
-        Scene scena=(Scene) anchorPane.getScene();
-        stage.setScene(scene);
-        stage.show();
-        //stage.setScene(scena);
-
-
+        a.setStage((Stage) anchorPane.getScene().getWindow(),null,"test.fxml",false);
+    }
+    @FXML
+    protected void newW() throws IOException {
+        a.setStage((Stage) anchorPane.getScene().getWindow(),"hello-view.fxml","test.fxml",true);
     }
     @FXML
     protected void addClick() throws IOException {
